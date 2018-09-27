@@ -1,14 +1,23 @@
+/*
+!/usr/bin/env c
+-*- coding: utf-8 -*-
+**************************************
+@Time    : 2018/9/27 1:02
+@Author  : Jiaxu Zou
+@File    : bike_manage.c 
+**************************************
+*/
 #include<stdio.h>
 #define MAXVertex 501
 #define INFINITY 1000000
-#pragma warning(disable:4996)
 
-//Definition for a two-dimensional structure array. GNode[i][j] represents the routing information from Vertex i to Vertex j.
-//Nv: the preface vertex of Vertex i
-//Ne: the serial number of the path to Nv
-//Send: the total number of bikes to take from Center to reach Vertex i
-//Back: the total number of bikes collected from routing vertexes upon reaching Vertex i(including bikes collected from Vertex i)
-
+/*
+Definition for a two-dimensional structure array. GNode[i][j] represents the routing information from Vertex i to Vertex j.
+Nv: the preface vertex of Vertex i
+Ne: the serial number of the path to Nv
+Send: the total number of bikes to take from Center to reach Vertex i
+Back: the total number of bikes collected from routing vertexes upon reaching Vertex i(including bikes collected from Vertex i)
+*/
 struct GNode {
 	int Nv;
 	int Ne;
@@ -16,29 +25,31 @@ struct GNode {
 	int Back;
 }GNode[MAXVertex][MAXVertex];
 
-//Definition for input variables: 
-//Full: the capacity of each vertex
-//Half: the half of Full
-//N: the total number of vertexes
-//M: the total number of edges between two vertexes
-//sp: the destination vertex
-//cur[]: the current bike number at each vertex
+/*
+Definition for input variables:
+Full: the capacity of each vertex
+Half: the half of Full
+N: the total number of vertexes
+M: the total number of edges between two vertexes
+sp: the destination vertex
+cur[]: the current bike number at each vertex
+*/
 
 int Full, N, M, sp, Half,cur[MAXVertex];
 
-//Definition for a two-dimensional array. G[i][j] represents the length of the edge between adjacent vertex pairs i and j.
+/*Definition for a two-dimensional array. G[i][j] represents the length of the edge between adjacent vertex pairs i and j.*/
 
 int G[MAXVertex][MAXVertex];
 
-//Definition for some intermediate variables in Dijkstra's Algorithm 
+/*Definition for some intermediate variables in Dijkstra's Algorithm*/
 
 int dist[MAXVertex], known[MAXVertex], p[MAXVertex];
 
-//Figuring out all the shortest paths using Dijkstra's Algorithm
+/*Figuring out all the shortest paths using Dijkstra's Algorithm*/
 
 void ShortestDist(int x);
 
-//Figuring out the optimal path among all the shortest paths found
+/*Figuring out the optimal path among all the shortest paths found*/
 
 void CheckGood();
 
