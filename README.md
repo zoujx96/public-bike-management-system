@@ -15,5 +15,16 @@ We are supposed to find the shortest path from the center to the destination sta
 
 The user should first type in the capacity of vertex, number of vertexes, destination vertex and number of edges, then type in the current bike number of each vertex, and after that, type in the graph information.
 As an example, the user can type in like this:  
-15 4 4 4  
+15 4 3 4  
+14  
+7  
+0  
+9  
+1 2 6  
+2 3 12  
+1 4 16  
+4 3 2  
+
+The program will return the best shortest path from the bike center to the destination vertex.  
+
 
